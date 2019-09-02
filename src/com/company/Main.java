@@ -10,32 +10,11 @@ public class Main {
         // Creates list of employees
         List<Employee> employeeList = new ArrayList<>();
 
-        // Creates objects
-        AdministrationPersonnel administrationPersonnel1 = new AdministrationPersonnel();
-        AdministrationPersonnel administrationPersonnel2 = new AdministrationPersonnel();
-        Instructor instructor1 = new Instructor();
-        Instructor instructor2 = new Instructor();
-
-        // Modifies objects
-        administrationPersonnel1.setName("Johanne");
-        administrationPersonnel1.setCpr("223344-5566");
-
-        administrationPersonnel2.setName("Kasper");
-        administrationPersonnel2.setCpr("445566-7788");
-
-        instructor1.setName("Jørgen");
-        instructor1.setCpr("334455-6677");
-        instructor1.setHours(12.5);
-
-        instructor2.setName("Katrine");
-        instructor2.setCpr("556677-8899");
-        instructor2.setHours(28);
-
-        // Adds objects to list
-        employeeList.add(administrationPersonnel1);
-        employeeList.add(instructor1);
-        employeeList.add(administrationPersonnel2);
-        employeeList.add(instructor2);
+        // Creates and adds objects of employees to list
+        employeeList.add(new AdministrationPersonnel("Johanne", "223344-5566"));
+        employeeList.add(new AdministrationPersonnel("Kasper", "445566-7788"));
+        employeeList.add(new Instructor("Jørgen", "334455-6677", 12.5));
+        employeeList.add(new Instructor("Katrine", "556677-8899", 28));
 
         // Prints List
         System.out.println("Name\t\tCPR\t\t\t\tHours\t\tSalary\t\tVacation");
@@ -43,8 +22,7 @@ public class Main {
         for(Employee e : employeeList){
             System.out.print(e.getName() + "\t\t" + e.getCpr() + "\t\t");
             if(e instanceof AdministrationPersonnel){
-                System.out.print(((AdministrationPersonnel)e).getHours() + "\t\t");
-                System.out.print(((AdministrationPersonnel) e).getSalary() + "\t\t");
+                System.out.print(e.getHours() + "\t\t" + e.getSalary() + "\t\t");
                 System.out.print(((AdministrationPersonnel) e).getVacation() + "\n");
             }else if(e instanceof Instructor){
                 System.out.print(e.getHours() + "\t\t");

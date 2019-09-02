@@ -2,7 +2,12 @@ package com.company;
 
 public class AdministrationPersonnel extends Employee {
 
-    private int vacation = 5;
+    private int vacation;
+
+    public AdministrationPersonnel(String name, String cpr) {
+        setName(name);
+        setCpr(cpr);
+    }
 
     public double getHours() {
         return 37;
@@ -13,7 +18,7 @@ public class AdministrationPersonnel extends Employee {
     }
 
     public int getVacation() {
-        return vacation;
+        return 5;
     }
 
 }
